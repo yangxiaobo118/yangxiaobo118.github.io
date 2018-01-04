@@ -217,10 +217,8 @@
                 <div class="col-md-8">
                     <p class="index-excerpt">
                       
-                        #关于mysql localhost无法登陆的问题
-##提示”Access denied for user ‘root’@’localhost’ (using password: YES)”
-1.是否被修改了root密码
-/etc/init.d/mysql stopmysqld_safe –skip-grant-tables &amp;mysql -uroot -pmysql&gt;update mysql.user set passw
+                        关于mysql localhost无法登陆的问题提示”Access denied for user ‘root’@’localhost’ (using password: YES)”1.是否被修改了root密码
+/etc/init.d/mysql stopmysqld_safe –skip-grant-tables &amp;mysql -uroot -pmysql&gt;update mysql.user set password=p
                       
                     </p>
                     

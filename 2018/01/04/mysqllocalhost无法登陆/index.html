@@ -181,9 +181,7 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>#关于mysql localhost无法登陆的问题</p>
-<p>##提示”Access denied for user ‘root’@’localhost’ (using password: YES)”</p>
-<h3 id="1-是否被修改了root密码"><a href="#1-是否被修改了root密码" class="headerlink" title="1.是否被修改了root密码"></a>1.是否被修改了root密码</h3><ul>
+      		<h1 id="关于mysql-localhost无法登陆的问题"><a href="#关于mysql-localhost无法登陆的问题" class="headerlink" title="关于mysql localhost无法登陆的问题"></a>关于mysql localhost无法登陆的问题</h1><h2 id="提示”Access-denied-for-user-‘root’-’localhost’-using-password-YES-”"><a href="#提示”Access-denied-for-user-‘root’-’localhost’-using-password-YES-”" class="headerlink" title="提示”Access denied for user ‘root’@’localhost’ (using password: YES)”"></a>提示”Access denied for user ‘root’@’localhost’ (using password: YES)”</h2><h3 id="1-是否被修改了root密码"><a href="#1-是否被修改了root密码" class="headerlink" title="1.是否被修改了root密码"></a>1.是否被修改了root密码</h3><ul>
 <li>/etc/init.d/mysql stop<br>mysqld_safe –skip-grant-tables &amp;<br>mysql -uroot -p<br>mysql&gt;update mysql.user set password=password(‘mypassword’) where user=’root’;<br>mysql&gt;flush privileges;<br>mysql&gt;quit<h3 id="2-localhost是否没有映射到root"><a href="#2-localhost是否没有映射到root" class="headerlink" title="2.localhost是否没有映射到root"></a>2.localhost是否没有映射到root</h3><ul>
 <li>mysql -u root -p  -h 127.0.0.1<br>grant all privileges on . to ‘root’@’localhost’ identified by ‘mypassword’ with grant option;<br>grant all privileges on . to ‘root’@’118.192.91.xxx’ identified by ‘mypassword’ with grant option;   </li>
 </ul>
