@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>myBlog</title>
+  <title>mysqllocalhost无法登陆 | myBlog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -166,149 +166,52 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-<!-- ============================ Content =========================== -->
-
+      
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2018/01/04/mysqllocalhost无法登陆/">mysqllocalhost无法登陆</a></h3>
-                    <span>
-                        <span class="post-meta">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
       <time datetime="2018-01-04T01:09:23.000Z" itemprop="datePublished">
           2018-01-04
       </time>
     
 </span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        #关于mysql localhost无法登陆的问题
-##提示”Access denied for user ‘root’@’localhost’ (using password: YES)”
-1.是否被修改了root密码
-/etc/init.d/mysql stopmysqld_safe –skip-grant-tables &amp;mysql -uroot -pmysql&gt;update mysql.user set passw
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2018/01/04/mysqllocalhost无法登陆/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
+                <h1>mysqllocalhost无法登陆</h1>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/12/31/have-a-try/">have a try</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-12-31T07:40:37.000Z" itemprop="datePublished">
-          2017-12-31
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/12/31/have-a-try/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>#关于mysql localhost无法登陆的问题</p>
+<p>##提示”Access denied for user ‘root’@’localhost’ (using password: YES)”</p>
+<h3 id="1-是否被修改了root密码"><a href="#1-是否被修改了root密码" class="headerlink" title="1.是否被修改了root密码"></a>1.是否被修改了root密码</h3><ul>
+<li>/etc/init.d/mysql stop<br>mysqld_safe –skip-grant-tables &amp;<br>mysql -uroot -p<br>mysql&gt;update mysql.user set password=password(‘mypassword’) where user=’root’;<br>mysql&gt;flush privileges;<br>mysql&gt;quit<h3 id="2-localhost是否没有映射到root"><a href="#2-localhost是否没有映射到root" class="headerlink" title="2.localhost是否没有映射到root"></a>2.localhost是否没有映射到root</h3><ul>
+<li>mysql -u root -p  -h 127.0.0.1<br>grant all privileges on . to ‘root’@’localhost’ identified by ‘mypassword’ with grant option;<br>grant all privileges on . to ‘root’@’118.192.91.xxx’ identified by ‘mypassword’ with grant option;   </li>
+</ul>
+</li>
+<li>select user,host,password from user; 再查询用户表</li>
+<li>mysql -h localhost和mysql -h 127.0.0.1的区别，通过localhost连接到mysql是使用UNIX socket，而通过127.0.0.1连接到mysql是使用TCP/IP  </li>
+<li>查看状态 mysql -h localhost &gt; status<br><em>问题解决</em>。</li>
+</ul>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/12/31/hello-world/">Hello blog</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-12-31T07:14:56.029Z" itemprop="datePublished">
-          2017-12-31
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new p
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/12/31/hello-world/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
-          
-          
-        </nav>
+    
+    
+    <a class="pull-right" href="/2017/12/31/have-a-try/">
+        have a try →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
+
 
       
 <!-- ============================ Footer =========================== -->
