@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2018 | myBlog</title>
+  <title>@import注解 | myBlog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -175,87 +175,165 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/01/05/import注解/">@import注解</a></h4>
-                            
-                            <p><time datetime="2018-01-05T02:29:20.000Z"><a href="/2018/01/05/import注解/">2018-01-05</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/01/04/dto-vo-do-po区别和联系/">dto vo do po区别和联系</a></h4>
-                            
-                            <p><time datetime="2018-01-04T08:09:02.000Z"><a href="/2018/01/04/dto-vo-do-po区别和联系/">2018-01-04</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/01/04/mysqllocalhost无法登陆/">mysqllocalhost无法登陆</a></h4>
-                            
-                            <p><time datetime="2018-01-04T01:09:23.000Z"><a href="/2018/01/04/mysqllocalhost无法登陆/">2018-01-04</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-01-05T02:29:20.000Z" itemprop="datePublished">
+          2018-01-05
+      </time>
+    
+    
+    | 
+    <a href='/tags/spring/'>spring</a>
+    
+    
+</span>
+                <h1>@import注解</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h2 id="Spring框架中的-Import注解"><a href="#Spring框架中的-Import注解" class="headerlink" title="Spring框架中的@Import注解"></a>Spring框架中的@Import注解</h2><blockquote>
+<p>在列表中，@Import 是被用来整合所有在@Configuration注解中定义的bean配置。这其实很像我们将多个XML配置文件导入到单个文件的情形。@Import注解实现了相同的功能。本文会介绍使用@Import注解来导入spring工程中的JavaConfig文件.</p>
+<blockquote>
+<p>代码<br>   Car.java<br>   package javabeat.net.basic;<br>   public interface Car {<br>       public void print();<br>   }</p>
+<blockquote>
+<p>Toyota.java</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>package javabeat.net.basic;
+import org.springframework.stereotype.Component;
+@Component
+public class Toyota implements Car{
+    public void print(){
+        System.out.println(&quot;I am Toyota&quot;);
+    }
+}
+</code></pre><blockquote>
+<blockquote>
+<blockquote>
+<p>　Volkswagen.java</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>package javabeat.net.basic;
+import org.springframework.stereotype.Component;
+@Component
+public class Volkswagen implements Car{
+    public void print(){
+        System.out.println(&quot;I am Volkswagen&quot;);
+    }
+}
+</code></pre><blockquote>
+<blockquote>
+<blockquote>
+<p>JavaConfigA.java</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>package javabeat.net.basic;
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class JavaConfigA {
+    @Bean(name=&quot;volkswagen&quot;)
+    public Car getVolkswagen(){
+        return new Volkswagen();
+    }
+}
+</code></pre><blockquote>
+<blockquote>
+<blockquote>
+<p>JavaConfigB.java</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>package javabeat.net.basic;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class JavaConfigB {
+    @Bean(name=&quot;toyota&quot;)
+    public Car getToyota(){
+        return new Toyota();
+    }
+}
+</code></pre><blockquote>
+<blockquote>
+<blockquote>
+<p>ParentConfig.java</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>package javabeat.net.basic;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+
+@Configuration
+@Import({JavaConfigA.class,JavaConfigB.class})
+public class ParentConfig {
+    //Any other bean definitions
+}
+</code></pre><blockquote>
+<blockquote>
+<blockquote>
+<p>ContextLoader.java</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>package javabeat.net.basic;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class ContextLoader {
+    public static void main (String args[]){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ParentConfig.class);
+        Car car = (Toyota)context.getBean(&quot;toyota&quot;);
+        car.print();
+        car = (Volkswagen)context.getBean(&quot;volkswagen&quot;);
+        car.print();
+        context.close();
+    }
+}
+</code></pre><blockquote>
+<blockquote>
+<blockquote>
+<p>  程序执行输出<br>     I am Toyata<br>     I am Volkswagen</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<pre><code>总结
+本文作者介绍了@Import注解的使用。这个注解帮助我们将多个配置文件（可能是按功能分，或是按业务分）导入到单个主配置中，以避免将所有配置写在一个配置中。
+转自[此篇博客](https://segmentfault.com/a/1190000011068471)
+</code></pre>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/01/04/dto-vo-do-po区别和联系/">
+        dto vo do po区别和联系 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
