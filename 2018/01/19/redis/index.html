@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2017/12 | vigorous</title>
+  <title>redis | vigorous</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -177,69 +177,77 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/12/31/hello-world/">Hello blog</a></h4>
-                            
-                            <p><time datetime="2017-12-31T07:14:56.029Z"><a href="/2017/12/31/hello-world/">2017-12-31</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-01-19T04:00:33.000Z" itemprop="datePublished">
+          2018-01-19
+      </time>
+    
+    
+    | 
+    <a href='/tags/redis/'>redis</a>
+    
+    
+</span>
+                <h1>redis</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><blockquote>
+<blockquote>
+<p>因为redis是C语言写的，所以要在centos上先安装redis的编译环境。</p>
+<ul>
+<li>yum install gcc-c++<br>然后从redis.io下载最新的稳定版</li>
+<li>wget <a href="http://download.redis.io/releases/redis-4.0.6.tar.gz" target="_blank" rel="noopener">http://download.redis.io/releases/redis-4.0.6.tar.gz</a><br>进如redis，编译安装，将redis安装到特定目录</li>
+<li>make /usr/local/redis/ install<br>进如安装目录</li>
+<li>redis-benchmark为性能测试工具</li>
+<li>redis-check-aof为aof修复的一个工具</li>
+<li>redis-check-rdb为rdb的一个文件检查的工具</li>
+<li>redis-cli redis客户端</li>
+<li>redis-server redis服务器启动命令<br>将我们解压的源码路径下的redis.conf拷贝到安装目录</li>
+<li>cd /home/redis/redis-4.0.6</li>
+<li>cp redis.conf /usr/local/redis/<br>redis安装完成，前端启动redis</li>
+<li>./redis-server<br>修改配置文件以达到后端启动的目的</li>
+<li>编辑redis.conf 将daemonize no改为yes<br>加载配置文件，达到后端启动</li>
+<li>./bin/redis-server ./redis.conf<br>查找redis是否被启动</li>
+<li>ps -ef | grep redis<br>停止redis服务</li>
+<li>[root@suke bin]# ./redis-cli shutdown<br>链接redis客户端</li>
+<li>./redis-cli<br>##基本操作<ol>
+<li>ping pong</li>
+<li>set name zzy 存入redis 数据库</li>
+<li>get name     得到redis中对应的值</li>
+<li>del name      删除key为name的数据</li>
+<li>keys * 查看当前数据库中所有的key</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+</blockquote>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/01/17/git命令/">
+        git命令 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 

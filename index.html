@@ -17,12 +17,12 @@
 <!--<![endif]-->
 
 <head>
-  <title>myBlog</title>
+  <title>vigorous</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content="myBlog">
+    <meta name="generator" content="vigorous">
     <meta name="author" content="vigorous">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -30,7 +30,7 @@
     <!-- Favicon, (keep icon in root folder) -->
     <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
 
-    <link rel="alternate" href="/atom.xml" title="myBlog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="vigorous" type="application/atom+xml">
     <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
     
     <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
@@ -91,6 +91,8 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
+				    <li><a href="/categories/data/" class="animsition-link">数据存储<small>(1)</small></a></li>
+				    
 				    <li><a href="/categories/programming/" class="animsition-link">编程<small>(4)</small></a></li>
 				    
 				</ul>
@@ -138,7 +140,7 @@
                     <!-- Info-bar -->
                     <nav>
                         <ul class="nav">
-                            <li><a href="/" class="animsition-link">myBlog</a></li>
+                            <li><a href="/" class="animsition-link">vigorous</a></li>
                             <li class="nolink"><span>Always </span>Creative.</li>
                             
                             <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
@@ -209,6 +211,48 @@
 
 <section id="intro">
     <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/01/19/redis/">redis</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-01-19T04:00:33.000Z" itemprop="datePublished">
+          2018-01-19
+      </time>
+    
+    
+    | 
+    <a href='/tags/redis/'>redis</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        redis
+
+因为redis是C语言写的，所以要在centos上先安装redis的编译环境。
+
+yum install gcc-c++然后从redis.io下载最新的稳定版
+wget http://download.redis.io/releases/redis-4.0.6.tar.gz进如redis，编译安装，将redis安装到特定目录
+make /usr/local/redis/ install进如安装目录
+redis-benchm
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/01/19/redis/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
