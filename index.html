@@ -91,7 +91,7 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/programming/" class="animsition-link">programming<small>(1)</small></a></li>
+				    <li><a href="/categories/programming/" class="animsition-link">programming<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/data/" class="animsition-link">数据存储<small>(2)</small></a></li>
 				    
@@ -217,6 +217,43 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2018/01/20/nginx反向代理以及负载均衡/">nginx反向代理以及负载均衡</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-01-20T03:02:17.000Z" itemprop="datePublished">
+          2018-01-20
+      </time>
+    
+    
+    | 
+    <a href='/tags/nginx/'>nginx</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        nginx反向代理服务器+负载均衡用nginx做反向代理和负载均衡非常简单,支持两个用法 1个proxy, 1个upstream,分别用来做反向代理,和负载均衡以反向代理为例, nginx不自己处理java的相关请求,而是把java的相关请求转发给apache来处理.
+—-这不就是传说的”动静分离”,动静分离不是一个严谨的说法,叫反向代理比较规范.
+反向代理后端如果有多台服务器,自然可形成负载均衡,但proxy_pass如何指向多台服务
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/01/20/nginx反向代理以及负载均衡/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2018/01/20/nginx-tomcat-memcached集群/">nginx+tomcat+memcached集群</a></h3>
                     <span>
                         <span class="post-meta">
@@ -226,7 +263,7 @@
     
     
     | 
-    <a href='/tags/nginx-memcached/'>nginx,memcached</a>
+    <a href='/tags/nginx-memcached/'>nginx memcached</a>
     
     
 </span>
@@ -542,42 +579,6 @@ JEESNS是一款基于JAVA企业级平台研发的社交管理系统，依托企�
                     
                     <p class="pull-right readMore">
                         <a href="/2018/01/04/dto-vo-do-po区别和联系/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2018/01/04/mysqllocalhost无法登陆/">mysqllocalhost无法登陆</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2018-01-04T01:09:23.000Z" itemprop="datePublished">
-          2018-01-04
-      </time>
-    
-    
-    | 
-    <a href='/tags/mysql/'>mysql</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        关于mysql localhost无法登陆的问题提示”Access denied for user ‘root’@’localhost’ (using password: YES)”1.是否被修改了root密码
-/etc/init.d/mysql stopmysqld_safe –skip-grant-tables &amp;mysql -uroot -pmysql&gt;update mysql.user set password=p
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2018/01/04/mysqllocalhost无法登陆/">Read More...</a>
                     </p>
                     
                 </div>

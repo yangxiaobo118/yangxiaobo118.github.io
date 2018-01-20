@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>mysqllocalhost无法登陆 | vigorous</title>
+  <title>nginx反向代理以及负载均衡 | vigorous</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -185,42 +185,38 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2018-01-04T01:09:23.000Z" itemprop="datePublished">
-          2018-01-04
+      <time datetime="2018-01-20T03:02:17.000Z" itemprop="datePublished">
+          2018-01-20
       </time>
     
     
     | 
-    <a href='/tags/mysql/'>mysql</a>
+    <a href='/tags/nginx/'>nginx</a>
     
     
 </span>
-                <h1>mysqllocalhost无法登陆</h1>
+                <h1>nginx反向代理以及负载均衡</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="关于mysql-localhost无法登陆的问题"><a href="#关于mysql-localhost无法登陆的问题" class="headerlink" title="关于mysql localhost无法登陆的问题"></a>关于mysql localhost无法登陆的问题</h1><h2 id="提示”Access-denied-for-user-‘root’-’localhost’-using-password-YES-”"><a href="#提示”Access-denied-for-user-‘root’-’localhost’-using-password-YES-”" class="headerlink" title="提示”Access denied for user ‘root’@’localhost’ (using password: YES)”"></a>提示”Access denied for user ‘root’@’localhost’ (using password: YES)”</h2><h3 id="1-是否被修改了root密码"><a href="#1-是否被修改了root密码" class="headerlink" title="1.是否被修改了root密码"></a>1.是否被修改了root密码</h3><ul>
-<li>/etc/init.d/mysql stop<br>mysqld_safe –skip-grant-tables &amp;<br>mysql -uroot -p<br>mysql&gt;update mysql.user set password=password(‘mypassword’) where user=’root’;<br>mysql&gt;flush privileges;<br>mysql&gt;quit<h3 id="2-localhost是否没有映射到root"><a href="#2-localhost是否没有映射到root" class="headerlink" title="2.localhost是否没有映射到root"></a>2.localhost是否没有映射到root</h3><ul>
-<li>mysql -u root -p  -h 127.0.0.1<br>grant all privileges on . to ‘root’@’localhost’ identified by ‘mypassword’ with grant option;<br>grant all privileges on . to ‘root’@’118.192.91.xxx’ identified by ‘mypassword’ with grant option;   </li>
-</ul>
-</li>
-<li>select user,host,password from user; 再查询用户表</li>
-<li>mysql -h localhost和mysql -h 127.0.0.1的区别，通过localhost连接到mysql是使用UNIX socket，而通过127.0.0.1连接到mysql是使用TCP/IP  </li>
-<li>查看状态 mysql -h localhost &gt; status<br><em>问题解决</em>。</li>
-</ul>
+      		<h2 id="nginx反向代理服务器-负载均衡"><a href="#nginx反向代理服务器-负载均衡" class="headerlink" title="nginx反向代理服务器+负载均衡"></a>nginx反向代理服务器+负载均衡</h2><p>用nginx做反向代理和负载均衡非常简单,<br>支持两个用法 1个proxy, 1个upstream,分别用来做反向代理,和负载均衡<br>以反向代理为例, nginx不自己处理java的相关请求,而是把java的相关请求转发给apache来处理.</p>
+<p>—-这不就是传说的”动静分离”,动静分离不是一个严谨的说法,叫反向代理比较规范.</p>
+<p>反向代理后端如果有多台服务器,自然可形成负载均衡,<br>但proxy_pass如何指向多台服务器?<br>把多台服务器用 upstream指定绑定在一起并起个组名,<br>然后proxy_pass指向该组</p>
+<p>默认的均衡的算法很简单,就是针对后端服务器的顺序,逐个请求.<br>也有其他负载均衡算法,如一致性哈希,需要安装第3方模块.</p>
+<h3 id="Nginx具体的压缩配置"><a href="#Nginx具体的压缩配置" class="headerlink" title="Nginx具体的压缩配置"></a>Nginx具体的压缩配置</h3><p>常用以下配置<br>gzip on|off<br>gzip_buffers 4K|8K 缓冲(和硬盘块相当)<br>gzip_comp_level [1-9] 推荐6<br>gzip_disable 正则匹配如User-Agent,针对古老浏览器不压缩<br>gzip_min_length 200<br>gzip_http_version 1.0|1.1<br>gzip_types text/plain , application/xml (各mime之间,一定要加空格,不是逗号)<br>gzip_vary on|off<br>nginx的缓存设置  提高网站性能<br>对于网站的图片,尤其是新闻站, 图片一旦发布, 改动的可能是非常小的.我们希望 能否在用户访问一次后, 图片缓存在用户的浏览器端,且时间比较长的缓存.<br>可以, 用到 nginx的expires设置 .<br>nginx中设置过期时间,非常简单,<br>在location或if段里,来写.<br>格式  expires 30s;<br>      expires 30m;<br>      expires 2h;<br>      expires 30d;<br>(注意:服务器的日期要准确,如果服务器的日期落后于实际日期,可能导致缓存失效)<br>另: 304 也是一种很好的缓存手段<br>原理是: 服务器响应文件内容是,同时响应etag标签(内容的签名,内容一变,他也变), 和 last_modified_since 2个标签值<br>浏览器下次去请求时,头信息发送这两个标签, 服务器检测文件有没有发生变化,如无,直接头信息返回 etag,last_modified_since<br>浏览器知道内容无改变,于是直接调用本地缓存.<br>这个过程,也请求了服务器,但是传着的内容极少.<br>对于变化周期较短的,如静态html,js,css,比较适于用这个方式    </p>
+<h3 id="location-语法"><a href="#location-语法" class="headerlink" title="location 语法"></a>location 语法</h3><p>location 有”定位”的意思, 根据Uri来进行不同的定位.<br>在虚拟主机的配置中,是必不可少的,location可以把网站的不同部分,定位到不同的处理方式上.<br>比如, 碰到.php, 如何调用PHP解释器?  –这时就需要location<br>location 的语法<br>location [=|~|~*|^~] patt {<br>}<br>中括号可以不写任何参数,此时称为一般匹配<br>也可以写参数<br>因此,大类型可以分为3种<br>location = patt {} [精准匹配]<br>location patt{}  [一般匹配]<br>location ~ patt{} [正则匹配]   </p>
+<p>如何发挥作用?:<br>首先看有没有精准匹配,如果有,则停止匹配过程.<br>location = patt {<br>    config A<br>}<br>如果 $uri == patt,匹配成功，使用configA<br>   location = / {<br>              root   /var/www/html/;<br>             index  index.htm index.html;<br>        }   </p>
+<p>  location / {<br>             root   /usr/local/nginx/html;<br>            index  index.html index.htm;<br>  }    </p>
+<p>如果访问　　<a href="http://xxx.com/" target="_blank" rel="noopener">http://xxx.com/</a><br>定位流程是　<br>1: 精准匹配中　”/”   ,得到index页为　　index.htm<br>2: 再次访问 /index.htm , 此次内部转跳uri已经是”/index.htm” ,<br>根目录为/usr/local/nginx/html<br>3: 最终结果,访问了 /usr/local/nginx/html/index.htm     </p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2018/01/04/dto-vo-do-po区别和联系/" style="float: left;">
-        ← dto vo do po区别和联系
-    </a>
     
-    
-    <a class="pull-right" href="/2017/12/31/hello-world/">
-        Hello blog →
+    <a class="pull-right" href="/2018/01/20/nginx-tomcat-memcached集群/">
+        nginx+tomcat+memcached集群 →
     </a>
     
 </nav>
