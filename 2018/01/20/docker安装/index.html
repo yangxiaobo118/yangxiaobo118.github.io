@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2018/1 | vigorous</title>
+  <title>docker安装 | vigorous</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -181,87 +181,99 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/01/05/import注解/">@import注解</a></h4>
-                            
-                            <p><time datetime="2018-01-05T02:29:20.000Z"><a href="/2018/01/05/import注解/">2018-01-05</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/01/04/dto-vo-do-po区别和联系/">dto vo do po区别和联系</a></h4>
-                            
-                            <p><time datetime="2018-01-04T08:09:02.000Z"><a href="/2018/01/04/dto-vo-do-po区别和联系/">2018-01-04</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/01/04/mysqllocalhost无法登陆/">mysqllocalhost无法登陆</a></h4>
-                            
-                            <p><time datetime="2018-01-04T01:09:23.000Z"><a href="/2018/01/04/mysqllocalhost无法登陆/">2018-01-04</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-01-20T08:07:34.000Z" itemprop="datePublished">
+          2018-01-20
+      </time>
+    
+    
+    | 
+    <a href='/tags/docker/'>docker</a>
+    
+    
+</span>
+                <h1>docker安装</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h1><h2 id="理解docker的镜像、容器，仓库概念。"><a href="#理解docker的镜像、容器，仓库概念。" class="headerlink" title="理解docker的镜像、容器，仓库概念。"></a>理解docker的镜像、容器，仓库概念。</h2><ul>
+<li>执行以下命令安装依赖包<blockquote>
+<blockquote>
+<p> yum install -y yum-utils device-mapper-persistent-data 1vm2</p>
+</blockquote>
+</blockquote>
+</li>
+<li>鉴于国内网络问题，建议使用国内源，执行下面命令添加yum软件源<blockquote>
+<blockquote>
+<p>yum-config-manager –add-repo <a href="https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/docker-ce/linux/centos/docker-ce.repo</a></p>
+</blockquote>
+</blockquote>
+</li>
+<li><ul>
+<li>官方源如下：<blockquote>
+<blockquote>
+<blockquote>
+<p>yum-config-manager –add-repo <a href="https://download.docker.com/linux/centos/docker-ce.repo" target="_blank" rel="noopener">https://download.docker.com/linux/centos/docker-ce.repo</a></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>成功后抓取到的repo文件存放在/etc/yum.repos.d/docker-ce.repo目录<br>PS：yum安装的镜像源全部在/etc/yum.repos.d/此目录配置</li>
+</ul>
+</li>
+<li>如何需要安装最新版本的Docker CE，使用如下命令<blockquote>
+<blockquote>
+<p> yum-config-manager –enable docker-ce-edge</p>
+</blockquote>
+</blockquote>
+</li>
+<li><ul>
+<li>安装测试版本的Docker CE，使用如下命令<blockquote>
+<blockquote>
+<blockquote>
+<p>yum-config-manager –enable docker-ce-test</p>
+<h3 id="正式安装Docker-CE"><a href="#正式安装Docker-CE" class="headerlink" title="正式安装Docker CE"></a>正式安装Docker CE</h3></blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>更新yum软件源缓存，并安装docker-ce<blockquote>
+<blockquote>
+<p>yum makecache fast<br>yum install docker-ce</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/01/20/正则表达式/">
+        正则表达式 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
