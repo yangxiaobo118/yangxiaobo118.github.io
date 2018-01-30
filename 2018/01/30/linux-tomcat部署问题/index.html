@@ -219,7 +219,7 @@ An error report file with more information is saved as:
 </code></pre><h3 id="ps-ef-grep-tomcat-发现有好多tomcat进程，不知道是怎么回事（可能是和我部署项目的方法有关系），然后依次kill掉所有的tomcat进程，我还改动了catalina-sh-为解决内存溢出的问题-，改动代码如下，重新用Xshell链接服务器，重新启动项目，就好了。"><a href="#ps-ef-grep-tomcat-发现有好多tomcat进程，不知道是怎么回事（可能是和我部署项目的方法有关系），然后依次kill掉所有的tomcat进程，我还改动了catalina-sh-为解决内存溢出的问题-，改动代码如下，重新用Xshell链接服务器，重新启动项目，就好了。" class="headerlink" title="ps -ef | grep tomcat 发现有好多tomcat进程，不知道是怎么回事（可能是和我部署项目的方法有关系），然后依次kill掉所有的tomcat进程，我还改动了catalina.sh(为解决内存溢出的问题)，改动代码如下，重新用Xshell链接服务器，重新启动项目，就好了。"></a>ps -ef | grep tomcat 发现有好多tomcat进程，不知道是怎么回事（可能是和我部署项目的方法有关系），然后依次kill掉所有的tomcat进程，我还改动了catalina.sh(为解决内存溢出的问题)，改动代码如下，重新用Xshell链接服务器，重新启动项目，就好了。</h3><blockquote>
 <blockquote>
 <p>JAVA_OPTS=’-Xms1024m -Xmx1024m -XX:PermSize=256M -XX:MaxNewSize=512m -XX:MaxPermSize=512m’</p>
-<h2 id="思考：内存溢出的问题应该是多个tomcat进程造成的，jar-not-loaded这个问题原因不得而知。"><a href="#思考：内存溢出的问题应该是多个tomcat进程造成的，jar-not-loaded这个问题原因不得而知。" class="headerlink" title="思考：内存溢出的问题应该是多个tomcat进程造成的，jar not loaded这个问题原因不得而知。"></a>思考：内存溢出的问题应该是多个tomcat进程造成的，jar not loaded这个问题原因不得而知。</h2></blockquote>
+<h2 id="思考：内存溢出的问题应该是多个tomcat进程造成的，jar-not-loaded这个问题原因不得而知。"><a href="#思考：内存溢出的问题应该是多个tomcat进程造成的，jar-not-loaded这个问题原因不得而知。" class="headerlink" title="思考：内存溢出的问题应该是多个tomcat进程造成的，jar not loaded这个问题原因不得而知。"></a>思考：内存溢出的问题应该是多个tomcat进程造成的，jar not loaded这个问题原因不得而知。</h2><h3 id="ps-退出linux远程登录，最好使用exit-不要直接X了。感觉会更好点"><a href="#ps-退出linux远程登录，最好使用exit-不要直接X了。感觉会更好点" class="headerlink" title="ps:退出linux远程登录，最好使用exit;不要直接X了。感觉会更好点"></a>ps:退出linux远程登录，最好使用exit;不要直接X了。感觉会更好点</h3></blockquote>
 </blockquote>
 
             <div class="clearfix"></div>
